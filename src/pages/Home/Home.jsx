@@ -25,7 +25,7 @@ function Home() {
         placeholder="enter bitcoin"
       />
 
-      {apiData && (!display.one || !display.two || !display.three) && (
+      {(!display.one || !display.two || !display.three) && (
         <select>
           {!display.one && (
             <option onClick={() => setDisplay({ ...display, one: true })}>
