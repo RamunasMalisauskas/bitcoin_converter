@@ -23,6 +23,64 @@ function Home() {
         id="btc"
         placeholder="enter bitcoin"
       />
+
+      {apiData && (
+        <>
+          {display.one && (
+            <>
+              <div>{apiData.bpi.USD.code}</div>
+              <div>
+                {parseInt(
+                  apiData.bpi.USD.rate_float * inputData,
+                  10
+                ).toLocaleString("en-US", {
+                  style: "currency",
+                  currency: apiData.bpi.USD.code,
+                })}
+              </div>
+              <button onClick={() => setDisplay({ ...display, one: false })}>
+                X
+              </button>
+            </>
+          )}
+
+          {display.two && (
+            <>
+              <div>{apiData.bpi.GBP.code}</div>
+              <div>
+                {parseInt(
+                  apiData.bpi.GBP.rate_float * inputData,
+                  10
+                ).toLocaleString("en-US", {
+                  style: "currency",
+                  currency: apiData.bpi.GBP.code,
+                })}
+              </div>
+              <button onClick={() => setDisplay({ ...display, two: false })}>
+                X
+              </button>
+            </>
+          )}
+
+          {display.three && (
+            <>
+              <div>{apiData.bpi.EUR.code}</div>
+              <div>
+                {parseInt(
+                  apiData.bpi.EUR.rate_float * inputData,
+                  10
+                ).toLocaleString("en-US", {
+                  style: "currency",
+                  currency: apiData.bpi.EUR.code,
+                })}
+              </div>
+              <button onClick={() => setDisplay({ ...display, three: false })}>
+                X
+              </button>
+            </>
+          )}
+        </>
+      )}
     </>
   );
 }
