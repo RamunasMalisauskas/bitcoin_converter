@@ -24,6 +24,20 @@ function Home() {
         placeholder="enter bitcoin"
       />
 
+      {apiData && (!display.one || !display.two || !display.three) && (
+        <select>
+          <option onClick={() => setDisplay({ ...display, one: true })}>
+            {apiData.bpi.USD.code}
+          </option>
+          <option onClick={() => setDisplay({ ...display, two: true })}>
+            {apiData.bpi.GBP.code}
+          </option>
+          <option onClick={() => setDisplay({ ...display, three: true })}>
+            {apiData.bpi.EUR.code}
+          </option>
+        </select>
+      )}
+
       {apiData && (
         <>
           {display.one && (
