@@ -26,15 +26,21 @@ function Home() {
 
       {apiData && (!display.one || !display.two || !display.three) && (
         <select>
-          <option onClick={() => setDisplay({ ...display, one: true })}>
-            {apiData.bpi.USD.code}
-          </option>
-          <option onClick={() => setDisplay({ ...display, two: true })}>
-            {apiData.bpi.GBP.code}
-          </option>
-          <option onClick={() => setDisplay({ ...display, three: true })}>
-            {apiData.bpi.EUR.code}
-          </option>
+          {!display.one && (
+            <option onClick={() => setDisplay({ ...display, one: true })}>
+              {apiData.bpi.USD.code}
+            </option>
+          )}
+          {!display.two && (
+            <option onClick={() => setDisplay({ ...display, two: true })}>
+              {apiData.bpi.GBP.code}
+            </option>
+          )}
+          {!display.three && (
+            <option onClick={() => setDisplay({ ...display, three: true })}>
+              {apiData.bpi.EUR.code}
+            </option>
+          )}
         </select>
       )}
 
