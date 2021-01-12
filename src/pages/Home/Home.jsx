@@ -9,8 +9,9 @@ function Home() {
     fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.bpi);
         setApiData(data);
+
+        setInterval(() => setApiData(data), 60000);
       });
   }, []);
 
