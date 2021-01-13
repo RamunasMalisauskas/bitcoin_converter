@@ -23,45 +23,55 @@ function ConCalc({ apiLink }) {
         -> interval is set to update the date every 1 min (60000 miliseconds) */
         setInterval(() => setApiData(data), 60000);
       });
-  }, []);
+  }, [apiLink]);
 
   return (
     <>
-      <input
+      <S.LabelBlock>
+        <S.Label>Bitcoin</S.Label>
+      </S.LabelBlock>
+
+      <S.Input
         onChange={(e) => setInputData(e.target.value)}
         type="number"
         name="btc"
         id="btc"
-        placeholder="enter bitcoin"
+        placeholder="enter amount of bitcoin"
       />
 
       {/* if any of the display hooks properies has been changed - the dropdown bar becomes visible
        with coresponding currency as the selecion option in the bar */}
       {(!display.one || !display.two || !display.three) && (
-        <select
-          /* display hook is set by spreading (...) display array and updating 
+        <S.SelectBlock>
+          <S.Select
+            /* display hook is set by spreading (...) display array and updating 
           it with selected option value as true (to be displayed) */
-          onChange={(e) => setDisplay({ ...display, [e.target.value]: true })}
-        >
-          <option value="">add currency</option>
+            onChange={(e) => setDisplay({ ...display, [e.target.value]: true })}
+          >
+            <option value="">add currency</option>
 
-          {!display.one && <option value="one">{apiData.bpi.USD.code}</option>}
+            {!display.one && (
+              <option value="one">{apiData.bpi.USD.code}</option>
+            )}
 
-          {!display.two && <option value="two">{apiData.bpi.GBP.code}</option>}
+            {!display.two && (
+              <option value="two">{apiData.bpi.GBP.code}</option>
+            )}
 
-          {!display.three && (
-            <option value="three">{apiData.bpi.EUR.code}</option>
-          )}
-        </select>
+            {!display.three && (
+              <option value="three">{apiData.bpi.EUR.code}</option>
+            )}
+          </S.Select>
+        </S.SelectBlock>
       )}
 
       {/* corrency converter is becomes visible only if the data from API is set */}
       {apiData && (
         <>
           {display.one && (
-            <>
-              <div>{apiData.bpi.USD.code}</div>
-              <div>
+            <S.CurrencyBlock>
+              <S.Subitle>{apiData.bpi.USD.code}</S.Subitle>
+              <S.ColorTitle>
                 {/* the converted result is formated to currency string */}
                 {parseInt(
                   apiData.bpi.USD.rate_float * inputData,
@@ -70,18 +80,18 @@ function ConCalc({ apiLink }) {
                   style: "currency",
                   currency: apiData.bpi.USD.code,
                 })}
-              </div>
+              </S.ColorTitle>
               {/* display array spread is nessesery to update individual propery not to overwrite entire array */}
-              <button onClick={() => setDisplay({ ...display, one: false })}>
+              <S.Button onClick={() => setDisplay({ ...display, one: false })}>
                 X
-              </button>
-            </>
+              </S.Button>
+            </S.CurrencyBlock>
           )}
 
           {display.two && (
-            <>
-              <div>{apiData.bpi.GBP.code}</div>
-              <div>
+            <S.CurrencyBlock>
+              <S.Subitle>{apiData.bpi.GBP.code}</S.Subitle>
+              <S.ColorTitle>
                 {parseInt(
                   apiData.bpi.GBP.rate_float * inputData,
                   10
@@ -89,17 +99,17 @@ function ConCalc({ apiLink }) {
                   style: "currency",
                   currency: apiData.bpi.GBP.code,
                 })}
-              </div>
-              <button onClick={() => setDisplay({ ...display, two: false })}>
+              </S.ColorTitle>
+              <S.Button onClick={() => setDisplay({ ...display, two: false })}>
                 X
-              </button>
-            </>
+              </S.Button>
+            </S.CurrencyBlock>
           )}
 
           {display.three && (
-            <>
-              <div>{apiData.bpi.EUR.code}</div>
-              <div>
+            <S.CurrencyBlock>
+              <S.Subitle>{apiData.bpi.EUR.code}</S.Subitle>
+              <S.ColorTitle>
                 {parseInt(
                   apiData.bpi.EUR.rate_float * inputData,
                   10
@@ -107,11 +117,13 @@ function ConCalc({ apiLink }) {
                   style: "currency",
                   currency: apiData.bpi.EUR.code,
                 })}
-              </div>
-              <button onClick={() => setDisplay({ ...display, three: false })}>
+              </S.ColorTitle>
+              <S.Button
+                onClick={() => setDisplay({ ...display, three: false })}
+              >
                 X
-              </button>
-            </>
+              </S.Button>
+            </S.CurrencyBlock>
           )}
         </>
       )}
