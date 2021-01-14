@@ -1,1 +1,1 @@
-export { default as ConCalc } from "./ConCalc/ConCalc.jsx";
+export { default as CurrCon } from "./CurrCon/CurrCon.jsx";

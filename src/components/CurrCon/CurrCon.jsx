@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./ConCalc.styled";
+import * as S from "./CurrCon.styled";
 import PropType from "prop-types";
 
-function ConCalc({ apiLink }) {
+function CurrCon({ apiLink }) {
   /* First hook is used to set input data (bitcoin input) and use it in conversion.
   Initial value to display is set to zero. */
   const [inputData, setInputData] = useState(0);
@@ -28,7 +28,7 @@ function ConCalc({ apiLink }) {
   return (
     <>
       <S.LabelBlock>
-        <S.Label>Bitcoin</S.Label>
+        <S.Label>Bitcoin Converter</S.Label>
       </S.LabelBlock>
 
       <S.Input
@@ -36,7 +36,7 @@ function ConCalc({ apiLink }) {
         type="number"
         name="btc"
         id="btc"
-        placeholder="enter amount of bitcoin"
+        placeholder="enter the amount of bitcoins"
       />
 
       {
@@ -70,7 +70,7 @@ function ConCalc({ apiLink }) {
       }
 
       {
-        // corrency converter is becomes visible only if the data from API is set
+        // currency converter is becomes visible only if the data from API is set
         apiData && (
           <>
             {display.one && (
@@ -147,8 +147,8 @@ function ConCalc({ apiLink }) {
   );
 }
 
-ConCalc.propTypes = {
+CurrCon.propTypes = {
   apiLink: PropType.string,
 };
 
-export default ConCalc;
+export default CurrCon;
