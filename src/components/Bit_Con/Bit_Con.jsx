@@ -3,8 +3,8 @@ import * as S from "./Bit_Con.styled";
 import PropType from "prop-types";
 
 function Bit_Con({ apiLink }) {
-  /* First hook is used to set input data (bitcoin input) and use it in conversion.
-  Initial value to display is set to zero. */
+  // First hook is used to set input data (bitcoin input) and use it in conversion.
+  // Initial value to display is set to zero.
   const [inputData, setInputData] = useState(0);
   // Second hook is used su save and use data from API
   const [apiData, setApiData] = useState();
@@ -19,8 +19,8 @@ function Bit_Con({ apiLink }) {
       .then((data) => {
         setApiData(data);
 
-        // After the data has been converted into json format and saved into second hook ->
-        // -> interval is set to update the date every 1 min (60000 miliseconds)
+        // After the data has been converted into json format and saved into second hook
+        // interval is set to update the date every 1 min (60000 miliseconds)
         setInterval(() => setApiData(data), 60000);
       });
   }, [apiLink]);
