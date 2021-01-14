@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   background: transparent;
-  color: #49c5b6;
+  color: #4d4f5c;
   cursor: pointer;
   border-radius: 4px;
-  border: 2.3px solid #49c5b6;
+  border: 2.3px solid #4d4f5c;
   transition: all 0.3s ease-in-out;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
@@ -14,8 +14,8 @@ export const Button = styled.button`
   min-width: 36px;
   padding: 2.3px;
   &:hover {
-    color: #00aeb0;
-    border: 2.3px solid #00aeb0;
+    color: #49c5b6;
+    border: 2.3px solid #49c5b6;
   }
 `;
 
