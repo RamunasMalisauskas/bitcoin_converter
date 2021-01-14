@@ -72,7 +72,7 @@ function CurrCon({ apiLink }) {
       {
         // currency converter is becomes visible only if the data from API is set
         apiData && (
-          <>
+          <S.Converter>
             {display.one && (
               <S.CurrencyBlock>
                 <S.Subitle>{apiData.bpi.USD.code}</S.Subitle>
@@ -136,7 +136,7 @@ function CurrCon({ apiLink }) {
                 </S.Button>
               </S.CurrencyBlock>
             )}
-          </>
+          </S.Converter>
         )
       }
       {

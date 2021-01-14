@@ -69,7 +69,12 @@ export const SelectBlock = styled.div`
   margin: 7px 0;
 `;
 
+export const Converter = styled.div`
+  text-align: center;
+`;
+
 export const CurrencyBlock = styled.div`
+  margin: 0 auto;
   max-width: 350px;
   display: flex;
   justify-content: space-between;
