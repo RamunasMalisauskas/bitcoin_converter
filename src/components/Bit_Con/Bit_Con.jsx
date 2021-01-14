@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./CurrCon.styled";
+import * as S from "./Bit_Con.styled";
 import PropType from "prop-types";
 
-function CurrCon({ apiLink }) {
+function Bit_Con({ apiLink }) {
   /* First hook is used to set input data (bitcoin input) and use it in conversion.
   Initial value to display is set to zero. */
   const [inputData, setInputData] = useState(0);
@@ -147,8 +147,8 @@ function CurrCon({ apiLink }) {
   );
 }
 
-CurrCon.propTypes = {
+Bit_Con.propTypes = {
   apiLink: PropType.string,
 };
 
-export default CurrCon;
+export default Bit_Con;
