@@ -135,10 +135,7 @@ function ConCalc({ apiLink }) {
 }
 
 ConCalc.propTypes = {
-  handleClick: PropType.func,
-  color: PropType.string,
-  size: PropType.string,
-  buttonType: PropType.string,
+  apiLink: PropType.string,
 };
 
 export default ConCalc;
